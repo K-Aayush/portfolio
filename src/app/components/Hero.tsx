@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { GoDownload } from "react-icons/go";
 
 const Hero = () => {
@@ -44,7 +45,15 @@ const Hero = () => {
           </div>
 
           {/*Image Content*/}
-          <div></div>
+          <div className="mx-auto hidden lg:block">
+            <Image
+              className="rounded-full border-[2px] border-green-400 border-dashed"
+              src={"/images/image.png"}
+              alt=""
+              width={500}
+              height={500}
+            />
+          </div>
         </div>
       </div>
     </div>
