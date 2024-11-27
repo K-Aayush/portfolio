@@ -24,20 +24,21 @@ const Hero = () => {
             </p>
 
             <div className="flex items-center gap-3 sm:gap-5">
-              <button className="flex items-center border border-green-500 rounded-3xl py-2 px-4 gap-2 font-semibold">
-                Download CV <GoDownload className="w-4 h-4 text-green-400" />
+              <button className="group flex items-center border border-green-500 text-green-400 rounded-3xl py-2 px-4 gap-2 font-semibold hover:bg-green-500 hover:text-black duration-300">
+                Download CV
+                <GoDownload className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
               </button>
               <Link
                 href={"/"}
-                className="border border-green-500 rounded-full p-2"
+                className="group border border-green-500 rounded-full p-2 hover:bg-green-400 duration-300"
               >
-                <FaGithub className="w-4 h-4 text-green-400" />
+                <FaGithub className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
               </Link>
               <Link
                 href={"/"}
-                className="border border-green-500 rounded-full p-2"
+                className="group border border-green-500 rounded-full p-2 hover:bg-green-400 duration-300"
               >
-                <FaLinkedin className="w-4 h-4 text-green-400" />
+                <FaLinkedin className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
               </Link>
             </div>
           </div>
