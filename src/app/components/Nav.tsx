@@ -15,7 +15,7 @@ const Nav = () => {
         {/*Logo*/}
         <h1 className="font-semibold text-xl md:text-2xl">
           Aayush Karki
-          <span className="text-2xl md:text-4xl text-green-500">.</span>
+          <span className="text-2xl text-green-500"> .</span>
         </h1>
 
         <div className="flex items-center space-x-10">
