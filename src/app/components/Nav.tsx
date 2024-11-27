@@ -1,6 +1,7 @@
 import React from "react";
 import { navLinks } from "../constant/constant";
 import Link from "next/link";
+import { HiBars3BottomRight } from "react-icons/hi2";
 
 const Nav = () => {
   return (
@@ -26,6 +27,9 @@ const Nav = () => {
             <button className="px-4 py-2 bg-green-500 rounded-full font-semibold hover:bg-green-600 transition-all duration-200">
               Hire Me
             </button>
+
+            {/*Burger*/}
+            <HiBars3BottomRight className="w-8 h-8 cursor-pointer text-white md:hidden" />
           </div>
         </div>
       </div>
