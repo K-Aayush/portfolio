@@ -1,4 +1,6 @@
 import React from "react";
+import { navLinks } from "../constant/constant";
+import Link from "next/link";
 
 const Nav = () => {
   return (
@@ -10,7 +12,13 @@ const Nav = () => {
         </h1>
 
         {/* Nav Links */}
-        <div className="flex items-center gap-4"></div>
+        <div className="flex items-center space-x-10">
+          {navLinks.map((nav) => (
+            <Link key={nav.id} href={nav.url}>
+              <p className="nav_label">{nav.label}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
