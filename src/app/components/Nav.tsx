@@ -2,6 +2,7 @@ import React from "react";
 import { navLinks } from "../constant/constant";
 import Link from "next/link";
 import { HiBars3BottomRight } from "react-icons/hi2";
+import { IoMdClose } from "react-icons/io";
 
 const Nav = () => {
   return (
@@ -31,6 +32,17 @@ const Nav = () => {
             {/*Burger*/}
             <HiBars3BottomRight className="w-8 h-8 cursor-pointer text-white md:hidden" />
           </div>
+        </div>
+      </div>
+
+      {/*SideBar*/}
+      <div className="fixed inset-0 bg-black opacity-70 w-full h-screen z-[50]"></div>
+      <div className="fixed top-0 left-0 w-[70%] sm:w-[50%] h-full bg-[#1c1b22] z-[100]">
+        <div className="flex justify-between items-center p-6">
+          <h1 className="font-medium text-xl">
+            Aayush Karki <span className="text-2xl text-green-500">.</span>
+          </h1>
+          <IoMdClose className="w-8 h-8 cursor-pointer text-white" />
         </div>
       </div>
     </div>
