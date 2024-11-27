@@ -5,3 +5,15 @@
 body {
   color: white;
 }
+
+@layer components {
+  .nav_label {
+    @apply relative text-gray-400 font-medium tracking-wide hover:text-white;
+  }
+  .nav_label::after {
+    @apply block content-[''] bg-green-500 h-[3px] absolute w-[0%] scale-x-0 rounded-xl transition duration-300 origin-right;
+  }
+  .nav_label:hover::after {
+    @apply w-full scale-x-100;
+  }
+}
