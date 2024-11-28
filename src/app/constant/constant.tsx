@@ -168,3 +168,9 @@ export const projects = [
     github: "https://github.com/K-Aayush/car_showcase-NextJS",
   },
 ];
+
+export const ContactInfo = {
+  phone: "+977 9827368746",
+  email: "ayushkarkee6@gmail.com",
+  address: "Kathmandu, Nepal",
+};
