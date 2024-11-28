@@ -37,7 +37,7 @@ const Hero = () => {
                 <GoDownload className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
               </a>
               <Link
-                href={"/https://github.com/K-Aayush"}
+                href={"https://github.com/K-Aayush"}
                 className="group border border-green-500 rounded-full p-2 hover:bg-green-400 duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -45,7 +45,7 @@ const Hero = () => {
                 <FaGithub className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
               </Link>
               <Link
-                href={"/https://www.linkedin.com/in/karkiayush/"}
+                href={"https://www.linkedin.com/in/karkiayush/"}
                 className="group border border-green-500 rounded-full p-2 hover:bg-green-400 duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
