@@ -12,7 +12,7 @@ const Hero = () => {
           {/*Text Content*/}
           <div className="flex flex-col items-start justify-center gap-6">
             <p className="font-medium text-sm text-white/60">Web Developer</p>
-            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] text-white/60 tracking-wide">
+            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] tracking-wide">
               Hello I'm <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-tr from-green-400 to-green-300">
                 Aayush Karki
