@@ -172,7 +172,7 @@ export const projects = [
   },
 ];
 
-export const ContactInfo = {
+export const Contacts = {
   phone: "+977 9827368746",
   email: "ayushkarkee6@gmail.com",
   address: "Kathmandu, Nepal",
