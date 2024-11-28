@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={`${jetBrainsMono.variable} antialiased`}>
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
