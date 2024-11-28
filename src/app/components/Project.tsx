@@ -26,7 +26,7 @@ const Project = () => {
   const activeProject = projects[activeIndex];
 
   return (
-    <div className="py-4 lg:py-16 bg-[#1c1b22] mx-auto">
+    <div className="py-16 bg-[#1c1b22] mx-auto">
       <div className="flex flex-col-reverse lg:flex-row mx-auto w-4/5 items-start gap-12">
         {/* Left Content */}
         <div className="w-full lg:w-[50%]">
