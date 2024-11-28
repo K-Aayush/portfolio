@@ -89,7 +89,7 @@ const Resume = () => {
   };
 
   return (
-    <div className="py-16 bg-[#1c1b22] mx-auto">
+    <div id="resume" className="py-16 bg-[#1c1b22] mx-auto scroll-mt-28">
       <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 items-start gap-12">
         {/*Left Content*/}
         <div className="flex flex-col gap-6">

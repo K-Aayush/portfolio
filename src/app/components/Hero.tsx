@@ -6,7 +6,10 @@ import { GoDownload } from "react-icons/go";
 
 const Hero = () => {
   return (
-    <div className="bg-[#1c1b22] pt-[4vh] md:[12vh] w-full h-screen overflow-hidden relative">
+    <div
+      id="home"
+      className="bg-[#1c1b22] pt-[4vh] md:[12vh] w-full h-screen overflow-hidden relative scroll-mt-12"
+    >
       <div className="flex flex-col items-center justify-center mx-auto w-4/5 h-screen">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
           {/*Text Content*/}
@@ -25,19 +28,27 @@ const Hero = () => {
             </p>
 
             <div className="flex items-center gap-3 sm:gap-5">
-              <button className="group flex items-center border border-green-500 text-green-400 rounded-3xl py-2 px-4 gap-2 font-semibold hover:bg-green-500 hover:text-black duration-300">
+              <a
+                href="/resume/Aayush_Karki_resume.pdf"
+                download
+                className="group flex items-center border border-green-500 text-green-400 rounded-3xl py-2 px-4 gap-2 font-semibold hover:bg-green-500 hover:text-black duration-300"
+              >
                 Download CV
                 <GoDownload className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
-              </button>
+              </a>
               <Link
-                href={"/"}
+                href={"/https://github.com/K-Aayush"}
                 className="group border border-green-500 rounded-full p-2 hover:bg-green-400 duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaGithub className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
               </Link>
               <Link
-                href={"/"}
+                href={"/https://www.linkedin.com/in/karkiayush/"}
                 className="group border border-green-500 rounded-full p-2 hover:bg-green-400 duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaLinkedin className="w-4 h-4 text-green-400 group-hover:text-black duration-300" />
               </Link>

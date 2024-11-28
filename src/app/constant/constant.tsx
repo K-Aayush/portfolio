@@ -7,27 +7,26 @@ import {
 } from "react-icons/fa6";
 import { SiMongodb, SiMysql } from "react-icons/si";
 import { RiNextjsLine } from "react-icons/ri";
-import { title } from "process";
 
 export const navLinks = [
   {
     id: 1,
-    url: "#",
+    url: "#home",
     label: "Home",
   },
   {
     id: 2,
-    url: "#",
+    url: "#resume",
     label: "Resume",
   },
   {
     id: 3,
-    url: "#",
+    url: "#projects",
     label: "Projects",
   },
   {
     id: 4,
-    url: "#",
+    url: "#contact",
     label: "Contact",
   },
 ];
@@ -128,13 +127,13 @@ export const projects = [
     category: "frontend",
     title: "project 1",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "WebPal is a modern web application built using Next.js and styled with Tailwind CSS. It features smooth animations, responsive design, and optimized performance for a seamless user experience across all devices.",
     stack: [
       { name: "NextJs" },
       { name: "TailwindCss" },
       { name: "TypeScript" },
     ],
-    image: "/images/pro 1.jpeg",
+    image: "/images/project 1.png",
     live: "https://webpal.vercel.app/",
     github: "https://github.com/K-Aayush/webpal",
   },
@@ -143,7 +142,7 @@ export const projects = [
     category: "Full Stack",
     title: "project 2",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "ConnectMe is a swipe-based dating web application similar to Tinder, built with the MERN stack. The frontend is developed using Next.js with Tailwind CSS for a responsive design, while the backend is powered by Express and the database is managed with MongoDB. The app features chat functionality, real-time matches, and an engaging user interface.",
     stack: [
       { name: "NextJs" },
       { name: "TailwindCss" },
@@ -151,7 +150,7 @@ export const projects = [
       { name: "expressJS" },
       { name: "mongoDB" },
     ],
-    image: "/images/pro 2.jpg",
+    image: "/images/project 2.png",
     live: "",
     github: "https://github.com/K-Aayush/ConnectMe",
   },
@@ -160,7 +159,7 @@ export const projects = [
     category: "frontend",
     title: "project 3",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "CarShowcase is a web application built with Next.js that displays a curated selection of cars. It integrates with the Google Cars API to fetch real-time car listings and showcase detailed information. The app offers a clean, user-friendly interface for browsing cars and their specifications.",
     stack: [
       { name: "NextJs" },
       { name: "TailwindCss" },

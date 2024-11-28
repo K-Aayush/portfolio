@@ -31,7 +31,7 @@ const Nav = () => {
           {/*Button*/}
           <div className="flex items-center space-x-4">
             <button className="px-4 py-2 bg-green-500 rounded-3xl font-normal sm:font-semibold hover:bg-green-600 transition-all duration-200">
-              Hire Me
+              <Link href={"#contact"}>Hire Me</Link>
             </button>
 
             {/*Burger*/}

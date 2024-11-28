@@ -11,6 +11,10 @@ body {
   color: white;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer components {
   .nav_label {
     @apply relative text-white/60 font-medium tracking-wide hover:text-white;
