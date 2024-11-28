@@ -76,6 +76,7 @@ const Project = () => {
               alt={activeProject.title}
               layout="fill"
               objectFit="cover"
+              className="transition-transform duration-700 ease-in-out transform hover:scale-105"
             />
           </div>
           <div className="flex gap-4">
