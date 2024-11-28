@@ -12,14 +12,29 @@ const Resume = () => {
     switch (selectedSection) {
       case "aboutMe":
         return (
-          <div className="text-xl font-medium flex flex-col items-start justify-center">
-            {aboutMe.title}
+          <div className="flex flex-col gap-[30px]">
+            <div className="flex flex-col text-center lg:text-start gap-[30px]">
+              <h3 className="text-3xl font-semibold">{aboutMe.title}</h3>
+              <p className="text-sm font-medium">{aboutMe.description}</p>
+            </div>
+
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+              {aboutMe.info.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-center justify-center lg:justify-start space-x-4 overflow-hidden"
+                >
+                  <span className="text-white/60">{item.fieldName}</span>
+                  <span className="text-lg">{item.fieldValue}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         );
       case "education":
         return (
           <div className="flex flex-col text-center lg:text-left gap-6">
-            <h3 className="text-xl font-semibold">{education.title}</h3>
+            <h3 className="text-3xl font-semibold">{education.title}</h3>
             <p className="text-sm font-medium">{education.description}</p>
 
             <ul className="grid gird-cols-1 lg:grid-cols-2 gap-[30px]">
@@ -47,7 +62,7 @@ const Resume = () => {
         return (
           <div className="flex flex-col gap-[30px]">
             <div className="flex flex-col text-center lg:text-left gap-6">
-              <h3 className="text-xl font-semibold">{skills.title}</h3>
+              <h3 className="text-3xl font-semibold">{skills.title}</h3>
               <p className="text-sm font-medium">{skills.description}</p>
             </div>
 
@@ -74,10 +89,18 @@ const Resume = () => {
   };
 
   return (
-    <div className="py-4 lg:py-16 bg-[#1c1b22]">
+    <div className="py-4 lg:py-16 bg-[#1c1b22] mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 items-start gap-12">
         {/*Left Content*/}
         <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-[30px] text-center lg:text-left">
+            <h1 className="text-4xl">Why hire me?</h1>
+            <p className="text-xs text-white/60">
+              Driven web developer specializing in React and nextjs, crafting
+              intuitive and responsive user experiences.
+            </p>
+          </div>
+
           <button
             onClick={() => setSelectedSection("aboutMe")}
             className={`w-full rounded-xl py-4 ${

@@ -11,14 +11,14 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
           {/*Text Content*/}
           <div className="flex flex-col items-start justify-center gap-6">
-            <p className="font-medium text-sm text-gray-200">Web Developer</p>
-            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] text-gray-200 tracking-wide">
+            <p className="font-medium text-sm text-white/60">Web Developer</p>
+            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] text-white/60 tracking-wide">
               Hello I'm <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-tr from-green-400 to-green-300">
                 Aayush Karki
               </span>
             </h1>
-            <p className="font-medium text-sm text-gray-200">
+            <p className="font-medium text-sm text-white/60">
               I specialize in creating seamless digital experiences and have
               expertise in a diverse range of programming languages and
               technologies, ensuring innovative and user-centric solutions.
