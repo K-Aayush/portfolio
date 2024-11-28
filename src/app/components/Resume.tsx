@@ -44,14 +44,37 @@ const Resume = () => {
           </div>
         );
       case "skills":
-        return <div className="text-xl font-medium">{skills.title}</div>;
+        return (
+          <div className="flex flex-col gap-[30px]">
+            <div className="flex flex-col text-center lg:text-left gap-6">
+              <h3 className="text-xl font-semibold">{skills.title}</h3>
+              <p className="text-sm font-medium">{skills.description}</p>
+            </div>
+
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
+              {skills.skillList.map((item, index) => (
+                <li
+                  key={index}
+                  className="relative flex justify-center items-center group bg-[#27272b] w-full h-[150px] rounded-2xl cursor-pointer"
+                >
+                  <span className="absolute -top-8 text-xs font-normal rounded-lg opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black px-4 py-2 duration-300">
+                    {item.name}
+                  </span>
+                  <div className="text-6xl group-hover:text-green-400 transition-all duration-300">
+                    {item.icon}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
       default:
         return null;
     }
   };
 
   return (
-    <div className="py-16 bg-[#1c1b22]">
+    <div className="py-4 lg:py-16 bg-[#1c1b22]">
       <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 items-start gap-12">
         {/*Left Content*/}
         <div className="flex flex-col gap-6">
