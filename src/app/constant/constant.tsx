@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa6";
 import { SiMongodb, SiMysql } from "react-icons/si";
 import { RiNextjsLine } from "react-icons/ri";
+import { title } from "process";
 
 export const navLinks = [
   {
@@ -120,3 +121,50 @@ export const skills = {
     },
   ],
 };
+
+export const projects = [
+  {
+    num: "01",
+    category: "frontend",
+    title: "project 1",
+    description: "",
+    stack: [
+      { name: "NextJs" },
+      { name: "TailwindCss" },
+      { name: "TypeScript" },
+    ],
+    image: "/images/pro 1.jpeg",
+    live: "https://webpal.vercel.app/",
+    github: "https://github.com/K-Aayush/webpal",
+  },
+  {
+    num: "02",
+    category: "Full Stack",
+    title: "project 2",
+    description: "",
+    stack: [
+      { name: "NextJs" },
+      { name: "TailwindCss" },
+      { name: "TypeScript" },
+      { name: "expressJS" },
+      { name: "mongoDB" },
+    ],
+    image: "/images/pro 2.jpg",
+    live: "",
+    github: "https://github.com/K-Aayush/ConnectMe",
+  },
+  {
+    num: "03",
+    category: "frontend",
+    title: "project 3",
+    description: "",
+    stack: [
+      { name: "NextJs" },
+      { name: "TailwindCss" },
+      { name: "TypeScript" },
+    ],
+    image: "/images/pro 3.jpg",
+    live: "",
+    github: "https://github.com/K-Aayush/car_showcase-NextJS",
+  },
+];
