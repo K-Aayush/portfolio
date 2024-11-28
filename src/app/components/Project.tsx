@@ -29,7 +29,11 @@ const Project = () => {
     <div id="projects" className="py-16 bg-[#1c1b22] mx-auto scroll-mt-28">
       <div className="flex flex-col-reverse lg:flex-row mx-auto w-4/5 items-start gap-12">
         {/* Left Content */}
-        <div className="w-full lg:w-[50%]">
+        <div
+          data-aos="fade-right"
+          data-aos-anchor-placement="top-center"
+          className="w-full lg:w-[50%]"
+        >
           <div className="flex flex-col gap-[30px]">
             <span className="text-8xl leading-none font-extrabold">
               {activeProject.num}
@@ -69,7 +73,11 @@ const Project = () => {
         </div>
 
         {/* Right Content */}
-        <div className="flex flex-col items-end justify-end gap-4 w-full lg:w-[50%]">
+        <div
+          data-aos="fade-left"
+          data-aos-anchor-placement="top-center"
+          className="flex flex-col items-end justify-end gap-4 w-full lg:w-[50%]"
+        >
           <div className="relative w-full h-[400px] bg-[#27272b] rounded-2xl overflow-hidden">
             <Image
               src={activeProject.image}

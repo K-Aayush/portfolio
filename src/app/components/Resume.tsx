@@ -92,7 +92,11 @@ const Resume = () => {
     <div id="resume" className="py-16 bg-[#1c1b22] mx-auto scroll-mt-28">
       <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 items-start gap-12">
         {/*Left Content*/}
-        <div className="flex flex-col gap-6">
+        <div
+          data-aos="fade-left"
+          data-aos-anchor-placement="top-center"
+          className="flex flex-col gap-6"
+        >
           <div className="flex flex-col gap-[30px] text-center lg:text-left">
             <h1 className="text-4xl">Why hire me?</h1>
             <p className="text-xs text-white/60">
@@ -136,7 +140,13 @@ const Resume = () => {
         </div>
 
         {/*Right Content*/}
-        <div className="col-span-2">{renderContent()}</div>
+        <div
+          data-aos="fade-right"
+          data-aos-anchor-placement="top-center"
+          className="col-span-2"
+        >
+          {renderContent()}
+        </div>
       </div>
     </div>
   );

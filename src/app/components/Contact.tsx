@@ -7,12 +7,17 @@ const Contact = () => {
     <div id="contact" className="py-16 bg-[#1c1b22] scroll-mt-28">
       <div className="grid grid-cols-1 lg:grid-cols-2 w-[80%] mx-auto items-center gap-12">
         {/* Contact Form */}
-        <div>
+        <div data-aos="fade-right" data-aos-anchor-placement="top-center">
           <ContactForm />
         </div>
 
         {/* Contact Info */}
-        <div className="lg:mx-auto">
+        <div
+          data-aos="zoom-in"
+          data-aos-anchor-placement="top-center"
+          data-aos-delay="100"
+          className="lg:mx-auto"
+        >
           <ContactInfo />
         </div>
       </div>

@@ -14,20 +14,37 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
           {/*Text Content*/}
           <div className="flex flex-col items-start justify-center gap-6">
-            <p className="font-medium text-sm text-white/60">Web Developer</p>
-            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] tracking-wide">
+            <p
+              data-aos="fade-left"
+              className="font-medium text-sm text-white/60"
+            >
+              Web Developer
+            </p>
+            <h1
+              data-aos="fade-right"
+              data-aos-delay="100"
+              className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] tracking-wide"
+            >
               Hello I'm <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-tr from-green-400 to-green-300">
                 Aayush Karki
               </span>
             </h1>
-            <p className="font-medium text-sm text-white/60">
+            <p
+              data-aos="fade-left"
+              data-aos-delay="200"
+              className="font-medium text-sm text-white/60"
+            >
               I specialize in creating seamless digital experiences and have
               expertise in a diverse range of programming languages and
               technologies, ensuring innovative and user-centric solutions.
             </p>
 
-            <div className="flex items-center gap-3 sm:gap-5">
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="300"
+              className="flex items-center gap-3 sm:gap-5"
+            >
               <a
                 href="/resume/Aayush_Karki_resume.pdf"
                 download
@@ -56,7 +73,11 @@ const Hero = () => {
           </div>
 
           {/*Image Content*/}
-          <div className="mx-auto hidden lg:block">
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            className="mx-auto hidden lg:block"
+          >
             <Image
               className="rounded-full border-[2px] border-green-400 border-dashed"
               src={"/images/image.png"}

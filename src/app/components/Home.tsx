@@ -6,6 +6,7 @@ import Resume from "./Resume";
 import Project from "./Project";
 import Contact from "./Contact";
 import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   useEffect(() => {
