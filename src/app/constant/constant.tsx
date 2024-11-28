@@ -127,7 +127,8 @@ export const projects = [
     num: "01",
     category: "frontend",
     title: "project 1",
-    description: "",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     stack: [
       { name: "NextJs" },
       { name: "TailwindCss" },
@@ -141,7 +142,8 @@ export const projects = [
     num: "02",
     category: "Full Stack",
     title: "project 2",
-    description: "",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     stack: [
       { name: "NextJs" },
       { name: "TailwindCss" },
@@ -157,7 +159,8 @@ export const projects = [
     num: "03",
     category: "frontend",
     title: "project 3",
-    description: "",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     stack: [
       { name: "NextJs" },
       { name: "TailwindCss" },
