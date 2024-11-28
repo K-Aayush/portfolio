@@ -1,5 +1,4 @@
 import {
-  FaBookOpen,
   FaHtml5,
   FaCss3Alt,
   FaNodeJs,
@@ -65,7 +64,6 @@ export const aboutMe = {
 };
 
 export const education = {
-  icon: FaBookOpen,
   title: "My Education",
   description:
     "BSc (Hons) in Computing, Itahari International College – Focused on building skills in software development, data management, and modern computing technologies.",
@@ -89,35 +87,35 @@ export const skills = {
     "I specialize in front-end development, creating interactive and responsive web applications using technologies like ReactJS, Tailwind CSS, and Redux. My focus is on crafting seamless user experiences with modern, efficient designs.",
   skillList: [
     {
-      icon: FaHtml5,
+      icon: <FaHtml5 />,
       name: "html 5",
     },
     {
-      icon: FaCss3Alt,
+      icon: <FaCss3Alt />,
       name: "css 3",
     },
     {
-      icon: FaSquareJs,
+      icon: <FaSquareJs />,
       name: "javascript",
     },
     {
-      icon: FaReact,
+      icon: <FaReact />,
       name: "reactjs",
     },
     {
-      icon: RiNextjsLine,
+      icon: <RiNextjsLine />,
       name: "nextjs",
     },
     {
-      icon: SiMongodb,
+      icon: <SiMongodb />,
       name: "mongodb",
     },
     {
-      icon: SiMysql,
+      icon: <SiMysql />,
       name: "mysql",
     },
     {
-      icon: FaNodeJs,
+      icon: <FaNodeJs />,
       name: "nodejs",
     },
   ],

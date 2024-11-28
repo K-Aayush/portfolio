@@ -11,15 +11,40 @@ const Resume = () => {
   const renderContent = () => {
     switch (selectedSection) {
       case "aboutMe":
-        return <div className="text-2xl font-bold">{aboutMe.title}</div>;
+        return (
+          <div className="text-xl font-medium flex flex-col items-start justify-center">
+            {aboutMe.title}
+          </div>
+        );
       case "education":
         return (
-          <div className="flex items-start justify-center text-2xl font-bold">
-            {education.icon} {education.title}
+          <div className="flex flex-col text-center lg:text-left gap-6">
+            <h3 className="text-xl font-semibold">{education.title}</h3>
+            <p className="text-sm font-medium">{education.description}</p>
+
+            <ul className="grid gird-cols-1 lg:grid-cols-2 gap-[30px]">
+              {education.info.map((item, index) => (
+                <li
+                  key={index}
+                  className="bg-[#27272b] flex flex-col justify-center items-center py-6 px-10 lg:items-start gap-1 rounded-2xl"
+                >
+                  <span className="text-green-400 text-sm">
+                    {item.duration}
+                  </span>
+                  <h3 className="text-xl text-center lg:text-left">
+                    {item.degree}
+                  </h3>
+                  <div className="flex items-center gap-3">
+                    <span className="h-[6px] w-[6px] rounded-full bg-green-400"></span>
+                    <p className="text-gray-300 text-xs">{item.institution}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         );
       case "skills":
-        return <div className="text-2xl font-bold">{skills.title}</div>;
+        return <div className="text-xl font-medium">{skills.title}</div>;
       default:
         return null;
     }
@@ -27,7 +52,7 @@ const Resume = () => {
 
   return (
     <div className="py-16 bg-[#1c1b22]">
-      <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 h-screen items-center gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 items-start gap-12">
         {/*Left Content*/}
         <div className="flex flex-col gap-6">
           <button
@@ -65,7 +90,7 @@ const Resume = () => {
         </div>
 
         {/*Right Content*/}
-        <div className="col-span-2">hlo</div>
+        <div className="col-span-2">{renderContent()}</div>
       </div>
     </div>
   );
