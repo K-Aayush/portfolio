@@ -12,7 +12,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Info */}
-        <div>
+        <div className="lg:mx-auto">
           <ContactInfo />
         </div>
       </div>
