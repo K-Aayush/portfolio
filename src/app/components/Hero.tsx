@@ -46,7 +46,7 @@ const Hero = () => {
               className="flex items-center gap-3 sm:gap-5"
             >
               <a
-                href="/resume/Aayush_Karki_resume.pdf"
+                href="/resume/Aayush_Karki_Resume.pdf"
                 download
                 className="group flex items-center border border-green-500 text-green-400 rounded-3xl py-2 px-4 gap-2 font-semibold hover:bg-green-500 hover:text-black duration-300"
               >

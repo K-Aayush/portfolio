@@ -1,6 +1,6 @@
 "use client";
 
-import React, { lazy, useState } from "react";
+import React, { useState } from "react";
 import { projects } from "../constant/constant";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaGithub } from "react-icons/fa6";
