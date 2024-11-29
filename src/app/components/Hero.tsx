@@ -80,7 +80,7 @@ const Hero = () => {
           >
             <Image
               className="rounded-full border-[2px] border-green-400 border-dashed"
-              src={"/images/image.PNG"}
+              src={"/images/image.png"}
               alt=""
               width={500}
               height={500}
