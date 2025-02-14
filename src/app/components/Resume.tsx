@@ -37,11 +37,11 @@ const Resume = () => {
             <h3 className="text-3xl font-semibold">{education.title}</h3>
             <p className="text-sm font-medium">{education.description}</p>
 
-            <ul className="grid gird-cols-1 lg:grid-cols-2 gap-[30px]">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] mt-6">
               {education.info.map((item, index) => (
                 <li
                   key={index}
-                  className="bg-[#27272b] flex flex-col justify-center items-center py-6 px-10 lg:items-start gap-1 rounded-2xl"
+                  className="bg-[#27272b] flex flex-col justify-center items-center lg:items-start py-6 px-8 lg:px-10 gap-3 rounded-2xl"
                 >
                   <span className="text-green-400 text-sm">
                     {item.duration}
@@ -58,6 +58,7 @@ const Resume = () => {
             </ul>
           </div>
         );
+
       case "experience":
         return (
           <div className="flex flex-col text-center lg:text-left gap-8">
@@ -83,9 +84,14 @@ const Resume = () => {
                   </span>
                   <div className="mt-3">
                     {item.details.map((detail, index) => (
-                      <div key={index} className="flex items-center gap-3">
+                      <div
+                        key={index}
+                        className="flex items-center justify-start gap-3"
+                      >
                         <span className="h-[6px] w-[6px] rounded-full bg-green-400"></span>
-                        <p className="text-gray-300 text-xs">{detail}</p>
+                        <p className="text-gray-300 text-xs text-left mb-1 max-sm:mb-2">
+                          {detail}
+                        </p>
                       </div>
                     ))}
                   </div>
