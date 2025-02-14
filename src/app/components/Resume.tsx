@@ -80,8 +80,7 @@ const Resume = () => {
                   <h3 className="text-xl text-gray-100 mt-2">{item.company}</h3>
                   <span className="text-gray-300 text-sm mt-1 block">
                     {item.role}
-                  </span>{" "}
-                  {/* Role added here */}
+                  </span>
                   <div className="mt-3">
                     {item.details.map((detail, index) => (
                       <p key={index} className="flex items-center gap-3">
