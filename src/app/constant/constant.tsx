@@ -88,6 +88,30 @@ export const education = {
   ],
 };
 
+export const experience = {
+  title: "My Experience",
+  description:
+    "Full Stack Developer Intern at Going Genius Group of Companies – Contributed to the development of POS software using Next.js, Node.js, and PostgreSQL. Led a team of interns and worked on various aspects including user authentication, integrating payment gateways, middleware, and code reviews.",
+  info: [
+    {
+      company: "Going Genius Group of Companies",
+      role: "Full Stack Developer Intern",
+      duration: "December 2024 - Present",
+      details: [
+        "Worked on developing the POS software, focusing on user-side functionalities.",
+        "Led a team of interns, overseeing project development and ensuring smooth execution.",
+        "Implemented user authentication features and worked on middleware for protected routes.",
+        "Integrated Khalti payment gateway for card top-up functionality.",
+        "Designed and implemented the card component, improving the user interface and experience.",
+        "Reviewed and optimized team members' code to ensure quality and consistency.",
+        "Developed logic for logout, user profiles, and fixed various bugs and type errors.",
+        "Worked with PostgreSQL database and Prisma ORM to create the data structure.",
+        "Created and designed the landing page with responsive design.",
+      ],
+    },
+  ],
+};
+
 export const skills = {
   title: "My Skills",
   description:
