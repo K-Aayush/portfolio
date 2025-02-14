@@ -4,9 +4,16 @@ import {
   FaNodeJs,
   FaSquareJs,
   FaReact,
+  FaFigma,
 } from "react-icons/fa6";
-import { SiMongodb, SiMysql } from "react-icons/si";
+import {
+  SiMongodb,
+  SiMysql,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 import { RiNextjsLine } from "react-icons/ri";
+import { DiPostgresql } from "react-icons/di";
 
 export const navLinks = [
   {
@@ -118,13 +125,29 @@ export const skills = {
       icon: <FaNodeJs />,
       name: "nodejs",
     },
+    {
+      icon: <DiPostgresql />,
+      name: "Postgresql",
+    },
+    {
+      icon: <FaFigma />,
+      name: "Figma",
+    },
+    {
+      icon: <SiTailwindcss />,
+      name: "TailwindCss",
+    },
+    {
+      icon: <SiTypescript />,
+      name: "TypeScript",
+    },
   ],
 };
 
 export const projects = [
   {
     num: "01",
-    category: "frontend",
+    category: "Webpal Website | Frontend Project",
     title: "project 1",
     description:
       "WebPal is a modern web application built using Next.js and styled with Tailwind CSS. It features smooth animations, responsive design, and optimized performance for a seamless user experience across all devices.",
@@ -139,7 +162,7 @@ export const projects = [
   },
   {
     num: "02",
-    category: "Full Stack",
+    category: "ConnectMe | Full-Stack Project",
     title: "project 2",
     description:
       "ConnectMe is a swipe-based dating web application similar to Tinder, built with the MERN stack. The frontend is developed using Next.js with Tailwind CSS for a responsive design, while the backend is powered by Express and the database is managed with MongoDB. The app features chat functionality, real-time matches, and an engaging user interface.",
@@ -153,21 +176,6 @@ export const projects = [
     image: "/images/project 2.png",
     live: "",
     github: "https://github.com/K-Aayush/ConnectMe",
-  },
-  {
-    num: "03",
-    category: "frontend",
-    title: "project 3",
-    description:
-      "CarShowcase is a web application built with Next.js that displays a curated selection of cars. It integrates with the Google Cars API to fetch real-time car listings and showcase detailed information. The app offers a clean, user-friendly interface for browsing cars and their specifications.",
-    stack: [
-      { name: "NextJs" },
-      { name: "TailwindCss" },
-      { name: "TypeScript" },
-    ],
-    image: "/images/pro 3.jpg",
-    live: "",
-    github: "https://github.com/K-Aayush/car_showcase-NextJS",
   },
 ];
 
