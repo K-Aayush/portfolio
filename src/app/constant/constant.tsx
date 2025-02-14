@@ -100,7 +100,6 @@ export const experience = {
       details: [
         "Developed a POS software using Next.js, managing both frontend and backend tasks.",
         "Implemented authentication, protected routes, and structured the project using best practices.",
-        "Integrated Khalti payment gateway for seamless card top-ups.",
         "Integrated Khalti payment gateway for card top-up functionality.",
         "Designed and built a dynamic card component and responsive landing page.",
         "Managed the database with Prisma ORM, designing the schema and structuring data.",
