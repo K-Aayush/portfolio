@@ -18,14 +18,14 @@ const Hero = () => {
               data-aos="fade-left"
               className="font-medium text-sm text-white/60"
             >
-              Web Developer
+              Full-Stack Developer
             </p>
             <h1
               data-aos="fade-right"
               data-aos-delay="100"
               className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl md:leading-[3rem] lg:leading-[4rem] xl:leading-[5rem] tracking-wide"
             >
-              Hello I'm <br />
+              Hello I`m <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-tr from-green-400 to-green-300">
                 Aayush Karki
               </span>
@@ -84,7 +84,8 @@ const Hero = () => {
               alt=""
               width={500}
               height={500}
-              unoptimized
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

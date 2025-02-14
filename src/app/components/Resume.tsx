@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { education, aboutMe, skills } from "../constant/constant";
+import { education, aboutMe, skills, experience } from "../constant/constant";
 
-type section = "aboutMe" | "education" | "skills";
+type section = "aboutMe" | "education" | "skills" | "experience";
 
 const Resume = () => {
   const [selectedSection, setSelectedSection] = useState<section>("aboutMe");
@@ -52,6 +52,43 @@ const Resume = () => {
                   <div className="flex items-center gap-3">
                     <span className="h-[6px] w-[6px] rounded-full bg-green-400"></span>
                     <p className="text-gray-300 text-xs">{item.institution}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      case "experience":
+        return (
+          <div className="flex flex-col text-center lg:text-left gap-8">
+            <h3 className="text-3xl font-semibold text-gray-100">
+              {experience.title}
+            </h3>
+            <p className="text-sm font-medium text-gray-400">
+              {experience.description}
+            </p>
+
+            <ul className="grid grid-cols-1 gap-6">
+              {experience.info.map((item, index) => (
+                <li
+                  key={index}
+                  className="bg-[#1f1f23] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                >
+                  <span className="text-green-400 text-sm">
+                    {item.duration}
+                  </span>
+                  <h3 className="text-xl text-gray-100 mt-2">{item.company}</h3>
+                  <span className="text-gray-300 text-sm mt-1 block">
+                    {item.role}
+                  </span>{" "}
+                  {/* Role added here */}
+                  <div className="mt-3">
+                    {item.details.map((detail, index) => (
+                      <p key={index} className="flex items-center gap-3">
+                        <span className="h-[6px] w-[6px] rounded-full bg-green-400"></span>
+                        <p className="text-gray-300 text-xs">{detail}</p>
+                      </p>
+                    ))}
                   </div>
                 </li>
               ))}
@@ -125,6 +162,17 @@ const Resume = () => {
             }`}
           >
             Skills
+          </button>
+
+          <button
+            onClick={() => setSelectedSection("experience")}
+            className={`w-full rounded-xl py-4 ${
+              selectedSection === "experience"
+                ? "bg-green-400 text-black"
+                : "bg-[#27272b]"
+            }`}
+          >
+            Experience
           </button>
 
           <button

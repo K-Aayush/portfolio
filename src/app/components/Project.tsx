@@ -84,6 +84,8 @@ const Project = () => {
               alt={activeProject.title}
               layout="fill"
               objectFit="cover"
+              loading="lazy"
+              decoding="async"
               className="transition-transform duration-700 ease-in-out transform hover:scale-105"
             />
           </div>
