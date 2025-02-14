@@ -83,10 +83,10 @@ const Resume = () => {
                   </span>
                   <div className="mt-3">
                     {item.details.map((detail, index) => (
-                      <p key={index} className="flex items-center gap-3">
+                      <div key={index} className="flex items-center gap-3">
                         <span className="h-[6px] w-[6px] rounded-full bg-green-400"></span>
                         <p className="text-gray-300 text-xs">{detail}</p>
-                      </p>
+                      </div>
                     ))}
                   </div>
                 </li>
