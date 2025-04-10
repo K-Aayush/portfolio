@@ -95,8 +95,8 @@ export const experience = {
   info: [
     {
       company: "Going Genius Group of Companies",
-      role: "Full Stack Developer Intern",
-      duration: "December 2024 - Present",
+      role: "Full Stack Developer Intern - Group Project",
+      duration: "December 2024 - April 2025",
       details: [
         "Developed a POS software using Next.js, managing both frontend and backend tasks.",
         "Implemented authentication, protected routes, and structured the project using best practices.",
@@ -105,6 +105,20 @@ export const experience = {
         "Managed the database with Prisma ORM, designing the schema and structuring data.",
         "Developed logic for logout, user profiles, and fixed various bugs and type errors.",
         "Led a team of interns, reviewed code, fixed bugs & type errors, and optimized performance.",
+      ],
+    },
+    {
+      company: "Going Genius Group of Companies",
+      role: "Full Stack Developer Intern - Solo Project",
+      duration: "December 2024 - April 2025",
+      details: [
+        "Developed a full-stack meeting scheduling platform using Next.js and Prisma ORM with NeonDB as the database.",
+        "Implemented Clerk authentication for secure user sign-in, registration, and session management.",
+        "Designed a user dashboard allowing users to manage profiles, create and configure event types.",
+        "Integrated Google Calendar API to schedule meetings directly into users' calendars.",
+        "Generated and shared Google Meet links automatically upon scheduling a meeting.",
+        "Enabled users to share meeting links with others, allowing seamless booking and calendar integration.",
+        "Ensured responsive UI/UX and optimized backend performance for real-time scheduling.",
       ],
     },
   ],
