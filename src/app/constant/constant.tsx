@@ -198,8 +198,28 @@ export const projects = [
   },
   {
     num: "02",
-    category: "ConnectMe | Full-Stack Project",
+    category: "Meeting Schedular | Nexjs Project",
     title: "project 2",
+    description:
+      "Meeting Scheduler is a full-stack web application built with Next.js and styled using Tailwind CSS. It allows users to create customizable event types, authenticate securely with Clerk, and schedule meetings with real-time Google Calendar integration. The app automatically generates and shares Google Meet links upon booking, making it seamless for users to manage and share their meetings. Powered by Prisma ORM and NeonDB, it ensures efficient data handling and smooth performance across devices.",
+    stack: [
+      { name: "NextJs" },
+      { name: "TailwindCss" },
+      { name: "TypeScript" },
+      { name: "SadcnUI" },
+      { name: "Clerk" },
+      { name: "NeonDB" },
+      { name: "Prisma ORM" },
+      { name: "Google API" },
+    ],
+    image: "/images/project 2.png",
+    live: "https://meetingscheulder.vercel.app/",
+    github: "https://github.com/K-Aayush/meetingscheulder",
+  },
+  {
+    num: "03",
+    category: "ConnectMe | Full-Stack Project",
+    title: "project 3",
     description:
       "ConnectMe is a swipe-based dating web application similar to Tinder, built with the MERN stack. The frontend is developed using Next.js with Tailwind CSS for a responsive design, while the backend is powered by Express and the database is managed with MongoDB. The app features chat functionality, real-time matches, and an engaging user interface.",
     stack: [
@@ -209,7 +229,7 @@ export const projects = [
       { name: "expressJS" },
       { name: "mongoDB" },
     ],
-    image: "/images/project 2.png",
+    image: "/images/project 3.png",
     live: "",
     github: "https://github.com/K-Aayush/ConnectMe",
   },
