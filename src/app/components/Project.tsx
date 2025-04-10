@@ -83,7 +83,7 @@ const Project = () => {
               src={activeProject.image}
               alt={activeProject.title}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
               loading="lazy"
               decoding="async"
               className="transition-transform duration-700 ease-in-out transform hover:scale-105"
