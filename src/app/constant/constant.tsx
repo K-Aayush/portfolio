@@ -96,7 +96,7 @@ export const experience = {
     {
       company: "Going Genius Group of Companies",
       role: "Full Stack Developer Intern - Group Project",
-      duration: "December 2024 - April 2025",
+      duration: "November 2024 - April 2025",
       details: [
         "Developed a POS software using Next.js, managing both frontend and backend tasks.",
         "Implemented authentication, protected routes, and structured the project using best practices.",
@@ -110,7 +110,7 @@ export const experience = {
     {
       company: "Going Genius Group of Companies",
       role: "Full Stack Developer Intern - Solo Project",
-      duration: "December 2024 - April 2025",
+      duration: "November 2024 - April 2025",
       details: [
         "Developed a full-stack meeting scheduling platform using Next.js and Prisma ORM with NeonDB as the database.",
         "Implemented Clerk authentication for secure user sign-in, registration, and session management.",
