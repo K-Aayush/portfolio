@@ -183,23 +183,46 @@ export const skills = {
 export const projects = [
   {
     num: "01",
-    category: "Webpal Website | Frontend Project",
-    title: "project 1",
+    category: "GlowGuide Website | Full-Stack Project",
+    title: "GlowGuide – AI Skincare Assistant",
     description:
-      "WebPal is a modern web application built using Next.js and styled with Tailwind CSS. It features smooth animations, responsive design, and optimized performance for a seamless user experience across all devices.",
+      "GlowGuide is a personalized skincare platform with role-based access (User, Admin, Dermatologist). Users can create skin profiles, track progress, chat with dermatologists, and receive AI-powered routine and product recommendations using Hugging Face API. Dermatologists manage appointments and patient details, while admins control user management and product listings.",
     stack: [
-      { name: "NextJs" },
-      { name: "TailwindCss" },
-      { name: "TypeScript" },
+      { name: "React.js" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "My Sql" },
+      { name: "Prisma ORM" },
+      { name: "HuggingFace API" },
+      { name: "Socket.io" },
     ],
-    image: "/images/project 1.png",
-    live: "https://webpal.vercel.app/",
-    github: "https://github.com/K-Aayush/webpal",
+    image: "/images/glowguide.png",
+    live: "https://glowguide.vercel.app/",
+    github: "https://github.com/K-Aayush/GlowGuide-Frontend",
   },
   {
     num: "02",
+    category: "HomeServiceBooking Website | Full-Stack Project",
+    title: "HomeServiceBooking – Booking Platform",
+    description:
+      "A full-featured home service booking platform supporting User, Recruiter, and Admin roles. Users can book services by category (Cleaning, Plumbing, Electrical), use OpenStreetMap for location input, and Stripe for payments. Includes real-time chat, booking status updates, dashboards for recruiters and admins, and visual data insights with filters and charts.",
+    stack: [
+      { name: "React.js" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "My Sql" },
+      { name: "Prisma ORM" },
+      { name: "Stripe API" },
+      { name: "Socket.io" },
+    ],
+    image: "/images/homeservice.png",
+    live: "",
+    github: "https://github.com/K-Aayush/HomeServiceBooking-Frontend",
+  },
+  {
+    num: "03",
     category: "Meeting Schedular | Nexjs Project",
-    title: "project 2",
+    title: "MeetingSchedular - Scheduling Platform",
     description:
       "Meeting Scheduler is a full-stack web application built with Next.js and styled using Tailwind CSS. It allows users to create customizable event types, authenticate securely with Clerk, and schedule meetings with real-time Google Calendar integration. The app automatically generates and shares Google Meet links upon booking, making it seamless for users to manage and share their meetings. Powered by Prisma ORM and NeonDB, it ensures efficient data handling and smooth performance across devices.",
     stack: [
@@ -212,14 +235,29 @@ export const projects = [
       { name: "Prisma ORM" },
       { name: "Google API" },
     ],
-    image: "/images/project 2.png",
+    image: "/images/schedular.png",
     live: "https://meetingscheulder.vercel.app/",
     github: "https://github.com/K-Aayush/meetingscheulder",
   },
   {
-    num: "03",
+    num: "04",
+    category: "Webpal Website | Frontend Project",
+    title: "WebPal",
+    description:
+      "WebPal is a modern web application built using Next.js and styled with Tailwind CSS. It features smooth animations, responsive design, and optimized performance for a seamless user experience across all devices.",
+    stack: [
+      { name: "NextJs" },
+      { name: "TailwindCss" },
+      { name: "TypeScript" },
+    ],
+    image: "/images/webpal.png",
+    live: "https://webpal.vercel.app/",
+    github: "https://github.com/K-Aayush/webpal",
+  },
+  {
+    num: "05",
     category: "ConnectMe | Full-Stack Project",
-    title: "project 3",
+    title: "ConnectMe - Dating Platform",
     description:
       "ConnectMe is a swipe-based dating web application similar to Tinder, built with the MERN stack. The frontend is developed using Next.js with Tailwind CSS for a responsive design, while the backend is powered by Express and the database is managed with MongoDB. The app features chat functionality, real-time matches, and an engaging user interface.",
     stack: [
@@ -229,7 +267,7 @@ export const projects = [
       { name: "expressJS" },
       { name: "mongoDB" },
     ],
-    image: "/images/project 3.png",
+    image: "/images/connectme.png",
     live: "",
     github: "https://github.com/K-Aayush/ConnectMe",
   },
