@@ -39,7 +39,7 @@ const Project = () => {
               {activeProject.num}
             </span>
             <h2 className="text-4xl leading-none font-bold hover:text-green-400 transition-all duration-500 capitalize">
-              {activeProject.category} project
+              {activeProject.category}
             </h2>
             <p className="text-white/60 text-sm">{activeProject.description}</p>
             <ul className="flex flex-wrap gap-4">
