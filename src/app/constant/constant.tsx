@@ -120,7 +120,7 @@ export const experience = {
     },
     {
       company: "Going Genius Group of Companies",
-      role: "Full Stack Developer Intern",
+      role: "Full Stack Developer | Project Manager",
       duration: "November 2024 - July 2025",
       details: [
         "Built full-stack applications using Next.js, Node.js, Prisma ORM, and PostgreSQL.",
