@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import CommandPalette from "./components/CommandPalette";
+import ScrollProgress from "./components/ScrollProgress";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jetBrainsMono.variable} antialiased`}>
         <Nav />
+        <ScrollProgress />
         {children}
         <Footer />
         <CommandPalette />

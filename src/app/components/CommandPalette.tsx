@@ -6,7 +6,6 @@ import {
   FiHome,
   FiUser,
   FiCode,
-  FiBriefcase,
   FiMail,
   FiDownload,
   FiSearch,
@@ -28,7 +27,9 @@ const CommandPalette = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const scrollToId = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const commands = useMemo<Command[]>(
@@ -95,7 +96,7 @@ const CommandPalette = () => {
         },
       },
     ],
-    []
+    [],
   );
 
   const filtered = useMemo(() => {
@@ -167,115 +168,115 @@ const CommandPalette = () => {
 
   return (
     <AnimatePresence>
-        {open && (
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 z-[200] flex items-start justify-center pt-[18vh] px-4 bg-black/60 backdrop-blur-sm"
+        >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
-            onClick={() => setOpen(false)}
-            className="fixed inset-0 z-[200] flex items-start justify-center pt-[18vh] px-4 bg-black/60 backdrop-blur-sm"
+            initial={{ opacity: 0, y: -12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.98 }}
+            transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            onClick={(e: { stopPropagation: () => any }) => e.stopPropagation()}
+            className="w-full max-w-xl rounded-2xl border border-white/[0.08] bg-[#16161a] shadow-[0_24px_80px_-12px_rgba(0,0,0,0.8)] overflow-hidden"
           >
-            <motion.div
-              initial={{ opacity: 0, y: -12, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -12, scale: 0.98 }}
-              transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e: { stopPropagation: () => any; }) => e.stopPropagation()}
-              className="w-full max-w-xl rounded-2xl border border-white/[0.08] bg-[#16161a] shadow-[0_24px_80px_-12px_rgba(0,0,0,0.8)] overflow-hidden"
-            >
-              {/* Search input */}
-              <div className="flex items-center gap-3 px-4 border-b border-white/[0.06]">
-                <FiSearch className="w-4 h-4 text-white/40 shrink-0" />
-                <input
-                  autoFocus
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Type a command or search..."
-                  className="w-full bg-transparent py-4 text-sm text-white placeholder:text-white/30 outline-none"
-                />
-                <kbd className="px-1.5 py-0.5 rounded bg-white/[0.06] border border-white/[0.08] text-[10px] text-white/40 shrink-0">
-                  ESC
-                </kbd>
-              </div>
+            {/* Search input */}
+            <div className="flex items-center gap-3 px-4 border-b border-white/[0.06]">
+              <FiSearch className="w-4 h-4 text-white/40 shrink-0" />
+              <input
+                autoFocus
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Type a command or search..."
+                className="w-full bg-transparent py-4 my-2 px-2 text-sm text-white placeholder:text-white/30 outline-none"
+              />
+              <kbd className="px-1.5 py-0.5 rounded bg-white/[0.06] border border-white/[0.08] text-[10px] text-white/40 shrink-0">
+                ESC
+              </kbd>
+            </div>
 
-              {/* Results */}
-              <div className="max-h-[50vh] overflow-y-auto p-2">
-                {filtered.length === 0 && (
-                  <div className="py-10 text-center text-sm text-white/30">
-                    No results for "{query}"
+            {/* Results */}
+            <div className="max-h-[50vh] overflow-y-auto p-2">
+              {filtered.length === 0 && (
+                <div className="py-10 text-center text-sm text-white/30">
+                  No results for "{query}"
+                </div>
+              )}
+
+              {grouped.map(([group, items]) => (
+                <div key={group} className="mb-1">
+                  <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-white/30">
+                    {group}
                   </div>
-                )}
-
-                {grouped.map(([group, items]) => (
-                  <div key={group} className="mb-1">
-                    <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-white/30">
-                      {group}
-                    </div>
-                    {items.map((cmd) => {
-                      runningIndex++;
-                      const isActive = runningIndex === activeIndex;
-                      return (
-                        <button
-                          key={cmd.id}
-                          onMouseEnter={() =>
-                            setActiveIndex(
-                              filtered.findIndex((c) => c.id === cmd.id)
-                            )
-                          }
-                          onClick={() => {
-                            cmd.action();
-                            setOpen(false);
-                            setQuery("");
-                          }}
-                          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-colors duration-100 ${
+                  {items.map((cmd) => {
+                    runningIndex++;
+                    const isActive = runningIndex === activeIndex;
+                    return (
+                      <button
+                        key={cmd.id}
+                        onMouseEnter={() =>
+                          setActiveIndex(
+                            filtered.findIndex((c) => c.id === cmd.id),
+                          )
+                        }
+                        onClick={() => {
+                          cmd.action();
+                          setOpen(false);
+                          setQuery("");
+                        }}
+                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-colors duration-100 ${
+                          isActive
+                            ? "bg-green-400/10 text-white"
+                            : "text-white/70 hover:bg-white/[0.03]"
+                        }`}
+                      >
+                        <span
+                          className={`w-7 h-7 grid place-items-center rounded-md shrink-0 ${
                             isActive
-                              ? "bg-green-400/10 text-white"
-                              : "text-white/70 hover:bg-white/[0.03]"
+                              ? "bg-green-400 text-black"
+                              : "bg-white/[0.04] text-white/60"
                           }`}
                         >
-                          <span
-                            className={`w-7 h-7 grid place-items-center rounded-md shrink-0 ${
-                              isActive
-                                ? "bg-green-400 text-black"
-                                : "bg-white/[0.04] text-white/60"
-                            }`}
-                          >
-                            {cmd.icon}
-                          </span>
-                          <span className="flex-1 text-sm">{cmd.label}</span>
-                          <span className="text-xs text-white/30">
-                            {cmd.hint}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                ))}
-              </div>
-
-              {/* Footer */}
-              <div className="flex items-center justify-between px-4 py-2.5 border-t border-white/[0.06] text-[10px] text-white/30">
-                <div className="flex items-center gap-3">
-                  <span className="flex items-center gap-1">
-                    <kbd className="px-1 py-0.5 rounded bg-white/[0.06] border border-white/[0.08]">
-                      ↑↓
-                    </kbd>
-                    navigate
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <kbd className="px-1 py-0.5 rounded bg-white/[0.06] border border-white/[0.08]">
-                      ↵
-                    </kbd>
-                    select
-                  </span>
+                          {cmd.icon}
+                        </span>
+                        <span className="flex-1 text-sm">{cmd.label}</span>
+                        <span className="text-xs text-white/30">
+                          {cmd.hint}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
-                <span>Aayush Karki</span>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="flex items-center justify-between px-4 py-2.5 border-t border-white/[0.06] text-[10px] text-white/30">
+              <div className="flex items-center gap-3">
+                <span className="flex items-center gap-1">
+                  <kbd className="px-1 py-0.5 rounded bg-white/[0.06] border border-white/[0.08]">
+                    ↑↓
+                  </kbd>
+                  navigate
+                </span>
+                <span className="flex items-center gap-1">
+                  <kbd className="px-1 py-0.5 rounded bg-white/[0.06] border border-white/[0.08]">
+                    ↵
+                  </kbd>
+                  select
+                </span>
               </div>
-            </motion.div>
+              <span>Aayush Karki</span>
+            </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
