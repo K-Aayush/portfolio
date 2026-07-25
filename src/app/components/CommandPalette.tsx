@@ -182,7 +182,7 @@ const CommandPalette = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.98 }}
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            onClick={(e: { stopPropagation: () => any }) => e.stopPropagation()}
+            onClick={(e: { stopPropagation: () => unknown }) => e.stopPropagation()}
             className="w-full max-w-xl rounded-2xl border border-white/[0.08] bg-[#16161a] shadow-[0_24px_80px_-12px_rgba(0,0,0,0.8)] overflow-hidden"
           >
             {/* Search input */}
@@ -204,7 +204,7 @@ const CommandPalette = () => {
             <div className="max-h-[50vh] overflow-y-auto p-2">
               {filtered.length === 0 && (
                 <div className="py-10 text-center text-sm text-white/30">
-                  No results for "{query}"
+                  No results for &quot;{query}&quot;
                 </div>
               )}
 
