@@ -8,7 +8,6 @@ import {
 } from "react-icons/fa6";
 import {
   SiMongodb,
-  SiMysql,
   SiTailwindcss,
   SiTypescript,
   SiExpress,
