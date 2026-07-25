@@ -1,21 +1,52 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { navLinks } from "../constant/constant";
 import Link from "next/link";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
 
+const sectionIds = navLinks.map((nav) => nav.url.replace("#", ""));
+
 const Nav = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
+  const [sidebarActive, setSidebarActive] = useState<string>("home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setSidebarActive(activeSection);
+  }, [activeSection]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) {
+          const id = visible[0].target.id;
+          setActiveSection(id);
+        }
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -41,11 +72,31 @@ const Nav = () => {
         <div className="flex items-center space-x-10">
           {/* Nav Links */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((nav) => (
-              <Link key={nav.id} href={nav.url}>
-                <p className="nav_label text-sm">{nav.label}</p>
-              </Link>
-            ))}
+            {navLinks.map((nav) => {
+              const isActive = activeSection === nav.url.replace("#", "");
+              return (
+                <Link key={nav.id} href={nav.url} className="relative">
+                  <p
+                    className={`text-sm transition-colors duration-300 ${
+                      isActive ? "text-white" : "text-white/60 hover:text-white"
+                    }`}
+                  >
+                    {nav.label}
+                  </p>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded-full bg-green-400"
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Button */}
@@ -97,22 +148,36 @@ const Nav = () => {
           <h1 className="font-medium text-[20px]">
             Aayush Karki <span className="text-2xl text-green-400">.</span>
           </h1>
-          <button aria-label="Close menu" onClick={() => setIsSidebarOpen(false)}>
+          <button
+            aria-label="Close menu"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <IoMdClose className="w-7 h-7 cursor-pointer text-white/80 hover:text-white transition-colors" />
           </button>
         </div>
 
         <div className="flex flex-col justify-center items-start space-y-6 py-10">
-          {navLinks.map((nav) => (
-            <Link key={nav.id} href={nav.url}>
-              <p
-                onClick={() => setIsSidebarOpen(false)}
-                className="nav_label text-[18px] border-white/10 border-b hover:border-none pb-2"
-              >
-                {nav.label}
-              </p>
-            </Link>
-          ))}
+          {navLinks.map((nav) => {
+            const id = nav.url.replace("#", "");
+            const isActive = sidebarActive === id;
+            return (
+              <Link key={nav.id} href={nav.url}>
+                <p
+                  onClick={() => {
+                    setSidebarActive(id);
+                    setIsSidebarOpen(false);
+                  }}
+                  className={`text-[18px] border-b pb-2 transition-colors duration-300 ${
+                    isActive
+                      ? "text-green-400 border-green-400"
+                      : "text-white/70 border-white/10 hover:text-white hover:border-white/30"
+                  }`}
+                >
+                  {nav.label}
+                </p>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

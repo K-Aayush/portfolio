@@ -1,7 +1,11 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 import { FaPhone, FaLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import { Contacts } from "../constant/constant";
+import { itemFadeUp, staggerContainer } from "../lib/motion";
 
 const ContactInfo = () => {
   const items = [
@@ -23,11 +27,20 @@ const ContactInfo = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-5">
+    <motion.ul
+      variants={staggerContainer(0.12)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="flex flex-col gap-5"
+    >
       {items.map((item, index) => (
-        <div
+        <motion.li
           key={index}
-          className="card card-hover flex items-center gap-5 p-5 group"
+          variants={itemFadeUp}
+          whileHover={{ x: 6 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="card card-hover flex items-center gap-5 p-5 group list-none"
         >
           <div className="grid place-items-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-green-400/10 border border-green-400/20 group-hover:bg-green-400/20 transition-colors duration-300">
             {item.icon}
@@ -40,9 +53,9 @@ const ContactInfo = () => {
               {item.value}
             </h3>
           </div>
-        </div>
+        </motion.li>
       ))}
-    </div>
+    </motion.ul>
   );
 };
 
