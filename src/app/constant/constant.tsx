@@ -11,7 +11,17 @@ import {
   SiMysql,
   SiTailwindcss,
   SiTypescript,
+  SiExpress,
+  SiGraphql,
+  SiPrisma,
+  SiDocker,
+  SiRedis,
+  SiDatadog,
 } from "react-icons/si";
+
+import { FaAws } from "react-icons/fa";
+
+import { FaGitAlt } from "react-icons/fa";
 import { RiNextjsLine } from "react-icons/ri";
 import { DiPostgresql } from "react-icons/di";
 
@@ -91,34 +101,34 @@ export const education = {
 export const experience = {
   title: "My Experience",
   description:
-    "Full Stack Developer Intern at Going Genius Group of Companies – Contributed to the development of POS software using Next.js, Node.js, and PostgreSQL. Led a team of interns and worked on various aspects including user authentication, integrating payment gateways, middleware, and code reviews.",
+    "Engineering Manager at CareDevi, leading the development of scalable healthcare platforms by combining technical leadership, backend architecture, and full-stack engineering. I drive cross-functional initiatives, mentor engineers, and build reliable systems that serve healthcare providers and patients.",
+
   info: [
     {
-      company: "Going Genius Group of Companies",
-      role: "Full Stack Developer Intern - Group Project",
-      duration: "November 2024 - April 2025",
+      company: "CareDevi",
+      role: "Engineering Manager",
+      duration: "July 2025 - Present",
       details: [
-        "Developed a POS software using Next.js, managing both frontend and backend tasks.",
-        "Implemented authentication, protected routes, and structured the project using best practices.",
-        "Integrated Khalti payment gateway for card top-up functionality.",
-        "Designed and built a dynamic card component and responsive landing page.",
-        "Managed the database with Prisma ORM, designing the schema and structuring data.",
-        "Developed logic for logout, user profiles, and fixed various bugs and type errors.",
-        "Led a team of interns, reviewed code, fixed bugs & type errors, and optimized performance.",
+        "Lead engineering initiatives across backend systems, APIs, and healthcare platform architecture.",
+        "Design scalable Node.js, GraphQL, and PostgreSQL services with a focus on performance and reliability.",
+        "Make architectural decisions and collaborate closely with product and design teams to deliver features.",
+        "Manage sprint planning, code reviews, technical mentoring, and engineering best practices.",
+        "Monitor production systems using Datadog, investigate incidents, and improve system reliability.",
+        "Design and implement healthcare features including wellness, EMR, patient portal, and public profile services.",
+        "Drive CI/CD improvements, code quality, and scalable development workflows.",
       ],
     },
     {
       company: "Going Genius Group of Companies",
-      role: "Full Stack Developer Intern - Solo Project",
-      duration: "November 2024 - April 2025",
+      role: "Full Stack Developer Intern",
+      duration: "November 2024 - July 2025",
       details: [
-        "Developed a full-stack meeting scheduling platform using Next.js and Prisma ORM with NeonDB as the database.",
-        "Implemented Clerk authentication for secure user sign-in, registration, and session management.",
-        "Designed a user dashboard allowing users to manage profiles, create and configure event types.",
-        "Integrated Google Calendar API to schedule meetings directly into users' calendars.",
-        "Generated and shared Google Meet links automatically upon scheduling a meeting.",
-        "Enabled users to share meeting links with others, allowing seamless booking and calendar integration.",
-        "Ensured responsive UI/UX and optimized backend performance for real-time scheduling.",
+        "Built full-stack applications using Next.js, Node.js, Prisma ORM, and PostgreSQL.",
+        "Developed a POS system with authentication, role-based access, and payment gateway integration.",
+        "Created a meeting scheduling platform with Clerk authentication and Google Calendar integration.",
+        "Integrated Google Meet scheduling and automated event creation.",
+        "Designed responsive user interfaces and optimized backend performance.",
+        "Collaborated with fellow interns through code reviews and feature development.",
       ],
     },
   ],
@@ -127,55 +137,84 @@ export const experience = {
 export const skills = {
   title: "My Skills",
   description:
-    "I specialize in front-end development, creating interactive and responsive web applications using technologies like ReactJS, Tailwind CSS, and Redux. My focus is on crafting seamless user experiences with modern, efficient designs.",
+    "I build scalable full-stack applications and backend systems with a strong focus on system architecture, API design, cloud deployment, and engineering leadership. My experience spans healthcare platforms, modern web technologies, and production-grade software.",
+
   skillList: [
     {
       icon: <FaHtml5 />,
-      name: "html 5",
+      name: "HTML5",
     },
     {
       icon: <FaCss3Alt />,
-      name: "css 3",
+      name: "CSS3",
     },
     {
       icon: <FaSquareJs />,
-      name: "javascript",
-    },
-    {
-      icon: <FaReact />,
-      name: "reactjs",
-    },
-    {
-      icon: <RiNextjsLine />,
-      name: "nextjs",
-    },
-    {
-      icon: <SiMongodb />,
-      name: "mongodb",
-    },
-    {
-      icon: <SiMysql />,
-      name: "mysql",
-    },
-    {
-      icon: <FaNodeJs />,
-      name: "nodejs",
-    },
-    {
-      icon: <DiPostgresql />,
-      name: "Postgresql",
-    },
-    {
-      icon: <FaFigma />,
-      name: "Figma",
-    },
-    {
-      icon: <SiTailwindcss />,
-      name: "TailwindCss",
+      name: "JavaScript",
     },
     {
       icon: <SiTypescript />,
       name: "TypeScript",
+    },
+    {
+      icon: <FaReact />,
+      name: "React",
+    },
+    {
+      icon: <RiNextjsLine />,
+      name: "Next.js",
+    },
+    {
+      icon: <FaNodeJs />,
+      name: "Node.js",
+    },
+    {
+      icon: <SiExpress />,
+      name: "Express.js",
+    },
+    {
+      icon: <DiPostgresql />,
+      name: "PostgreSQL",
+    },
+    {
+      icon: <SiMongodb />,
+      name: "MongoDB",
+    },
+    {
+      icon: <SiPrisma />,
+      name: "Prisma ORM",
+    },
+    {
+      icon: <SiGraphql />,
+      name: "GraphQL",
+    },
+    {
+      icon: <SiDocker />,
+      name: "Docker",
+    },
+    {
+      icon: <SiRedis />,
+      name: "Redis",
+    },
+    {
+      icon: <SiTailwindcss />,
+      name: "Tailwind CSS",
+    },
+    {
+      icon: <FaGitAlt />,
+      name: "Git",
+    },
+    {
+      icon: <FaAws />,
+      name: "AWS",
+    },
+    {
+      icon: <SiDatadog />,
+      name: "Datadog",
+    },
+    {
+      icon: <FaFigma />,
+      name: "Figma",
     },
   ],
 };
