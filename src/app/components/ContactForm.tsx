@@ -2,9 +2,9 @@
 
 import type React from "react";
 import { useState } from "react";
+import { HiArrowRight } from "react-icons/hi2";
 
 const ContactForm = () => {
-  // Form state
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -13,26 +13,20 @@ const ContactForm = () => {
     message: "",
   });
 
-  // Form status state
   const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
     success: false,
-    error: null,
+    error: null as string | null,
   });
 
-  // Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus({
@@ -45,9 +39,7 @@ const ContactForm = () => {
     try {
       const response = await fetch("https://formspree.io/f/mkgjkpwg", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -79,35 +71,39 @@ const ContactForm = () => {
     }
   };
 
+  const inputClass =
+    "flex-1 bg-white/[0.03] border border-white/[0.06] text-white placeholder:text-white/30 px-5 py-3 rounded-xl outline-none w-full transition-all duration-300 focus:border-green-400/50 focus:bg-white/[0.05]";
+
   return (
-    <div className="bg-[#27272b] p-4 sm:p-10 rounded-lg">
+    <div className="card p-6 sm:p-10">
       <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-4">
-          <h1 className="bg-clip-text text-transparent bg-gradient-to-tr from-green-400 to-green-300 text-2xl md:text-3xl font-bold">
+        <div className="flex flex-col gap-3">
+          <span className="text-green-400 text-xs uppercase tracking-[0.3em]">
+            Contact
+          </span>
+          <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-400 text-2xl md:text-3xl font-bold tracking-tight">
             Let&apos;s Work Together
           </h1>
-          <p className="text-white/60 text-xs md:text-sm">
+          <p className="text-white/50 text-xs md:text-sm leading-relaxed max-w-md">
             Got a project or idea? Let&apos;s work together! Fill out the form
             to connect.
           </p>
         </div>
 
-        {/* Form status messages */}
         {status.submitted && status.success && (
-          <div className="bg-green-500/20 text-green-400 p-4 rounded-md">
+          <div className="bg-green-400/10 border border-green-400/20 text-green-300 p-4 rounded-xl text-sm">
             Thank you! Your message has been sent successfully.
           </div>
         )}
 
         {status.submitted && status.error && (
-          <div className="bg-red-500/20 text-red-400 p-4 rounded-md">
+          <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl text-sm">
             {status.error}
           </div>
         )}
 
-        {/* input fields */}
         <form onSubmit={handleSubmit} className="block w-full overflow-hidden">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <input
                 type="text"
@@ -115,7 +111,7 @@ const ContactForm = () => {
                 value={formData.firstName}
                 onChange={handleChange}
                 placeholder="First name"
-                className="flex-1 bg-[#1c1b22] text-white placeholder:text-white/60 px-6 py-3 rounded-md outline-none w-full"
+                className={inputClass}
                 required
               />
               <input
@@ -124,7 +120,7 @@ const ContactForm = () => {
                 value={formData.lastName}
                 onChange={handleChange}
                 placeholder="Last name"
-                className="flex-1 bg-[#1c1b22] text-white placeholder:text-white/60 px-6 py-3 rounded-md outline-none w-full"
+                className={inputClass}
                 required
               />
             </div>
@@ -135,7 +131,7 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email address"
-                className="flex-1 bg-[#1c1b22] text-white placeholder:text-white/60 px-6 py-3 rounded-md outline-none w-full"
+                className={inputClass}
                 required
               />
               <input
@@ -144,7 +140,7 @@ const ContactForm = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone number"
-                className="flex-1 bg-[#1c1b22] text-white placeholder:text-white/60 px-6 py-3 rounded-md outline-none w-full"
+                className={inputClass}
               />
             </div>
             <textarea
@@ -152,16 +148,19 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Message"
-              className="bg-[#1c1b22] text-white placeholder:text-white/60 px-6 py-3 rounded-md outline-none w-full"
-              rows={7}
+              className={`${inputClass} resize-none`}
+              rows={6}
               required
             />
             <button
               type="submit"
               disabled={status.submitting}
-              className="px-8 py-3 bg-green-400 text-white hover:bg-green-500 transition-all duration-200 rounded-3xl w-fit disabled:opacity-70 disabled:cursor-not-allowed"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-green-400 text-black hover:bg-green-300 transition-all duration-300 rounded-full w-fit font-semibold text-sm disabled:opacity-70 disabled:cursor-not-allowed hover:shadow-[0_0_30px_-6px_rgba(74,222,128,0.6)]"
             >
               {status.submitting ? "Sending..." : "Send Message"}
+              {!status.submitting && (
+                <HiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              )}
             </button>
           </div>
         </form>

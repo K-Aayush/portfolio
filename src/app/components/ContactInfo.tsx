@@ -4,35 +4,44 @@ import { MdOutlineEmail } from "react-icons/md";
 import { Contacts } from "../constant/constant";
 
 const ContactInfo = () => {
+  const items = [
+    {
+      icon: <FaPhone className="w-4 h-4 md:w-5 md:h-5 text-green-400" />,
+      label: "Phone",
+      value: Contacts.phone,
+    },
+    {
+      icon: <MdOutlineEmail className="w-4 h-4 md:w-5 md:h-5 text-green-400" />,
+      label: "Email",
+      value: Contacts.email,
+    },
+    {
+      icon: <FaLocationDot className="w-4 h-4 md:w-5 md:h-5 text-green-400" />,
+      label: "Address",
+      value: Contacts.address,
+    },
+  ];
+
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex items-center space-x-8">
-        <div className="flex flex-col justify-center items-center w-10 h-10 md:w-16 md:h-16 bg-[#27272b]">
-          <FaPhone className="w-4 h-4 md:w-7 md:h-7 text-green-400" />
+    <div className="flex flex-col gap-5">
+      {items.map((item, index) => (
+        <div
+          key={index}
+          className="card card-hover flex items-center gap-5 p-5 group"
+        >
+          <div className="grid place-items-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-green-400/10 border border-green-400/20 group-hover:bg-green-400/20 transition-colors duration-300">
+            {item.icon}
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-xs text-white/40 uppercase tracking-wider">
+              {item.label}
+            </span>
+            <h3 className="text-base md:text-lg font-semibold text-white/90">
+              {item.value}
+            </h3>
+          </div>
         </div>
-        <div className="flex flex-col gap-1">
-          <span className="text-xs md:text-sm text-white/60">Phone</span>
-          <h3 className="text-xl md:text-2xl font-bold">{Contacts.phone}</h3>
-        </div>
-      </div>
-      <div className="flex items-center space-x-8">
-        <div className="flex flex-col justify-center items-center w-10 h-10 md:w-16 md:h-16 bg-[#27272b]">
-          <MdOutlineEmail className="w-4 h-4 md:w-7 md:h-7 text-green-400" />
-        </div>
-        <div className="flex flex-col gap-1">
-          <span className="text-xs md:text-sm text-white/60">Email</span>
-          <h3 className="text-xl md:text-2xl font-bold">{Contacts.email}</h3>
-        </div>
-      </div>
-      <div className="flex items-center space-x-8">
-        <div className="flex flex-col justify-center items-center w-10 h-10 md:w-16 md:h-16 bg-[#27272b]">
-          <FaLocationDot className="w-4 h-4 md:w-7 md:h-7 text-green-400" />
-        </div>
-        <div className="flex flex-col gap-1">
-          <span className="text-xs md:text-sm text-white/60">Address</span>
-          <h3 className="text-xl md:text-2xl font-bold">{Contacts.address}</h3>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

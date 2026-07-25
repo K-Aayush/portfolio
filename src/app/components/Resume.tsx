@@ -8,24 +8,39 @@ type section = "aboutMe" | "education" | "skills" | "experience";
 const Resume = () => {
   const [selectedSection, setSelectedSection] = useState<section>("aboutMe");
 
+  const tabs: { id: section; label: string }[] = [
+    { id: "aboutMe", label: "About me" },
+    { id: "skills", label: "Skills" },
+    { id: "experience", label: "Experience" },
+    { id: "education", label: "Education" },
+  ];
+
   const renderContent = () => {
     switch (selectedSection) {
       case "aboutMe":
         return (
           <div className="flex flex-col gap-[30px]">
             <div className="flex flex-col text-center lg:text-start gap-[30px]">
-              <h3 className="text-3xl font-semibold">{aboutMe.title}</h3>
-              <p className="text-sm font-medium">{aboutMe.description}</p>
+              <h3 className="text-3xl font-semibold tracking-tight">
+                {aboutMe.title}
+              </h3>
+              <p className="text-sm font-medium text-white/60 leading-relaxed max-w-2xl">
+                {aboutMe.description}
+              </p>
             </div>
 
-            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5">
               {aboutMe.info.map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center justify-center lg:justify-start space-x-4 overflow-hidden"
+                  className="flex items-center justify-center lg:justify-start gap-4 border-b border-white/[0.06] pb-3"
                 >
-                  <span className="text-white/60">{item.fieldName}</span>
-                  <span className="text-lg">{item.fieldValue}</span>
+                  <span className="text-white/40 text-xs uppercase tracking-wider min-w-[90px]">
+                    {item.fieldName}
+                  </span>
+                  <span className="text-base text-white/90">
+                    {item.fieldValue}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -34,24 +49,28 @@ const Resume = () => {
       case "education":
         return (
           <div className="flex flex-col text-center lg:text-left gap-6">
-            <h3 className="text-3xl font-semibold">{education.title}</h3>
-            <p className="text-sm font-medium">{education.description}</p>
+            <h3 className="text-3xl font-semibold tracking-tight">
+              {education.title}
+            </h3>
+            <p className="text-sm font-medium text-white/60 leading-relaxed max-w-2xl">
+              {education.description}
+            </p>
 
-            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] mt-6">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
               {education.info.map((item, index) => (
                 <li
                   key={index}
-                  className="bg-[#27272b] flex flex-col justify-center items-center lg:items-start py-6 px-8 lg:px-10 gap-3 rounded-2xl"
+                  className="card card-hover flex flex-col justify-center items-center lg:items-start py-6 px-8 gap-3"
                 >
-                  <span className="text-green-400 text-sm">
+                  <span className="text-green-400 text-xs font-medium tracking-wide">
                     {item.duration}
                   </span>
-                  <h3 className="text-xl text-center lg:text-left">
+                  <h3 className="text-lg text-center lg:text-left">
                     {item.degree}
                   </h3>
                   <div className="flex items-center gap-3">
-                    <span className="h-[6px] w-[6px] rounded-full bg-green-400"></span>
-                    <p className="text-gray-300 text-xs">{item.institution}</p>
+                    <span className="h-[6px] w-[6px] rounded-full bg-green-400" />
+                    <p className="text-white/50 text-xs">{item.institution}</p>
                   </div>
                 </li>
               ))}
@@ -62,34 +81,38 @@ const Resume = () => {
       case "experience":
         return (
           <div className="flex flex-col text-center lg:text-left gap-8">
-            <h3 className="text-3xl font-semibold text-gray-100">
+            <h3 className="text-3xl font-semibold text-white tracking-tight">
               {experience.title}
             </h3>
-            <p className="text-sm font-medium text-gray-400">
+            <p className="text-sm font-medium text-white/60 leading-relaxed max-w-2xl">
               {experience.description}
             </p>
 
-            <ul className="grid grid-cols-1 gap-6">
+            <ul className="flex flex-col gap-5">
               {experience.info.map((item, index) => (
                 <li
                   key={index}
-                  className="bg-[#1f1f23] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                  className="card card-hover p-6 group hover:shadow-[0_0_40px_-12px_rgba(74,222,128,0.25)]"
                 >
-                  <span className="text-green-400 text-sm">
-                    {item.duration}
-                  </span>
-                  <h3 className="text-xl text-gray-100 mt-2">{item.company}</h3>
-                  <span className="text-gray-300 text-sm mt-1 block">
-                    {item.role}
-                  </span>
-                  <div className="mt-3">
-                    {item.details.map((detail, index) => (
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-4">
+                    <div>
+                      <h3 className="text-lg text-white">{item.company}</h3>
+                      <span className="text-white/60 text-sm mt-1 block">
+                        {item.role}
+                      </span>
+                    </div>
+                    <span className="text-green-400 text-xs font-medium tracking-wide whitespace-nowrap">
+                      {item.duration}
+                    </span>
+                  </div>
+                  <div className="mt-2 grid gap-2">
+                    {item.details.map((detail, dIndex) => (
                       <div
-                        key={index}
-                        className="flex items-center justify-start gap-3"
+                        key={dIndex}
+                        className="flex items-start justify-start gap-3"
                       >
-                        <span className="h-[6px] w-[6px] rounded-full bg-green-400"></span>
-                        <p className="text-gray-300 text-xs text-left mb-1 max-sm:mb-2">
+                        <span className="mt-[6px] h-[6px] w-[6px] shrink-0 rounded-full bg-green-400/70 group-hover:bg-green-400 transition-colors" />
+                        <p className="text-white/55 text-xs text-left leading-relaxed">
                           {detail}
                         </p>
                       </div>
@@ -104,20 +127,24 @@ const Resume = () => {
         return (
           <div className="flex flex-col gap-[30px]">
             <div className="flex flex-col text-center lg:text-left gap-6">
-              <h3 className="text-3xl font-semibold">{skills.title}</h3>
-              <p className="text-sm font-medium">{skills.description}</p>
+              <h3 className="text-3xl font-semibold tracking-tight">
+                {skills.title}
+              </h3>
+              <p className="text-sm font-medium text-white/60 leading-relaxed max-w-2xl">
+                {skills.description}
+              </p>
             </div>
 
-            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {skills.skillList.map((item, index) => (
                 <li
                   key={index}
-                  className="relative flex justify-center items-center group bg-[#27272b] w-full h-[150px] rounded-2xl cursor-pointer"
+                  className="card card-hover relative flex flex-col justify-center items-center gap-3 h-[140px] cursor-default group"
                 >
-                  <span className="absolute -top-8 text-xs font-normal rounded-lg opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black px-4 py-2 duration-300">
+                  <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[11px] font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black px-3 py-1 whitespace-nowrap">
                     {item.name}
                   </span>
-                  <div className="text-6xl group-hover:text-green-400 transition-all duration-300">
+                  <div className="text-5xl text-white/70 group-hover:text-green-400 transition-all duration-300 group-hover:scale-110">
                     {item.icon}
                   </div>
                 </li>
@@ -131,77 +158,55 @@ const Resume = () => {
   };
 
   return (
-    <div id="resume" className="py-16 bg-[#1c1b22] mx-auto scroll-mt-28">
-      <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 items-start gap-12">
-        {/*Left Content*/}
+    <section
+      id="resume"
+      className="relative py-24 bg-[#0e0e11] mx-auto scroll-mt-28 overflow-hidden"
+    >
+      <div className="absolute top-0 left-1/4 h-[300px] w-[300px] rounded-full bg-green-400/[0.04] blur-[120px]" />
+      <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto w-4/5 items-start gap-12 relative">
+        {/* Left Content */}
         <div
-          data-aos="fade-left"
+          data-aos="fade-right"
           data-aos-anchor-placement="top-center"
-          className="flex flex-col gap-6"
+          className="flex flex-col gap-4 lg:sticky lg:top-28"
         >
-          <div className="flex flex-col gap-[30px] text-center lg:text-left">
-            <h1 className="text-4xl">Why hire me?</h1>
-            <p className="text-xs text-white/60">
-              Driven web developer specializing in React and nextjs, crafting
-              intuitive and responsive user experiences.
+          <div className="flex flex-col gap-3 text-center lg:text-left mb-4">
+            <span className="text-green-400 text-xs uppercase tracking-[0.3em]">
+              Profile
+            </span>
+            <h1 className="text-4xl tracking-tight">Why hire me?</h1>
+            <p className="text-xs text-white/50 leading-relaxed max-w-xs lg:mx-0 mx-auto">
+              Engineering manager and hands-on full-stack engineer building
+              scalable, production-grade systems with a focus on architecture
+              and reliability.
             </p>
           </div>
 
-          <button
-            onClick={() => setSelectedSection("aboutMe")}
-            className={`w-full rounded-xl py-4 ${
-              selectedSection === "aboutMe"
-                ? "bg-green-400 text-black"
-                : "bg-[#27272b]"
-            }`}
-          >
-            About me
-          </button>
-
-          <button
-            onClick={() => setSelectedSection("skills")}
-            className={`w-full rounded-xl py-4 ${
-              selectedSection === "skills"
-                ? "bg-green-400 text-black"
-                : "bg-[#27272b]"
-            }`}
-          >
-            Skills
-          </button>
-
-          <button
-            onClick={() => setSelectedSection("experience")}
-            className={`w-full rounded-xl py-4 ${
-              selectedSection === "experience"
-                ? "bg-green-400 text-black"
-                : "bg-[#27272b]"
-            }`}
-          >
-            Experience
-          </button>
-
-          <button
-            onClick={() => setSelectedSection("education")}
-            className={`w-full rounded-xl py-4 ${
-              selectedSection === "education"
-                ? "bg-green-400 text-black"
-                : "bg-[#27272b]"
-            }`}
-          >
-            Education
-          </button>
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setSelectedSection(tab.id)}
+              className={`w-full rounded-xl py-4 text-sm font-medium transition-all duration-300 border ${
+                selectedSection === tab.id
+                  ? "bg-green-400 text-black border-green-400 shadow-[0_0_24px_-8px_rgba(74,222,128,0.6)]"
+                  : "bg-white/[0.03] text-white/70 border-white/[0.06] hover:border-white/15 hover:text-white"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
-        {/*Right Content*/}
+        {/* Right Content */}
         <div
-          data-aos="fade-right"
+          data-aos="fade-left"
           data-aos-anchor-placement="top-center"
           className="col-span-2"
         >
           {renderContent()}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

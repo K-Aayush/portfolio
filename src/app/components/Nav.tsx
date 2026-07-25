@@ -1,77 +1,113 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navLinks } from "../constant/constant";
 import Link from "next/link";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
+import { FiSearch } from "react-icons/fi";
 
 const Nav = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div className="fixed h-[12vh] z-[10] bg-[#1c1b22] w-full">
+    <div
+      className={`fixed h-[12vh] z-[10] w-full transition-all duration-300 ${
+        scrolled
+          ? "glass border-b border-white/[0.06]"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="flex items-center h-full justify-between mx-auto w-[95%] sm:w-[90%] lg:w-[80%]">
-        {/*Logo*/}
-        <h1 className="sm:font-semibold font-normal text-lg sm:text-2xl">
-          Aayush Karki
-          <span className="text-2xl text-green-500"> .</span>
-        </h1>
+        {/* Logo */}
+        <Link href="#home" className="group">
+          <h1 className="sm:font-semibold font-normal text-lg sm:text-2xl tracking-tight">
+            Aayush Karki
+            <span className="text-2xl text-green-400 group-hover:text-green-300 transition-colors duration-300">
+              {" "}
+              .
+            </span>
+          </h1>
+        </Link>
 
         <div className="flex items-center space-x-10">
           {/* Nav Links */}
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((nav) => (
               <Link key={nav.id} href={nav.url}>
-                <p className="nav_label">{nav.label}</p>
+                <p className="nav_label text-sm">{nav.label}</p>
               </Link>
             ))}
           </div>
 
-          {/*Button*/}
+          {/* Button */}
           <div className="flex items-center space-x-4">
-            <button className="px-4 py-2 bg-green-500 rounded-3xl font-normal sm:font-semibold hover:bg-green-600 transition-all duration-200">
-              <Link href={"#contact"}>Hire Me</Link>
+            <button
+              onClick={() =>
+                window.dispatchEvent(new Event("open-command-palette"))
+              }
+              className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/[0.08] bg-white/[0.02] text-xs text-white/50 hover:text-white hover:border-white/20 transition-all duration-200"
+              aria-label="Open command palette"
+            >
+              <FiSearch className="w-3.5 h-3.5" />
+              <span>Search</span>
+              <kbd className="ml-2 px-1.5 py-0.5 rounded bg-white/[0.06] border border-white/[0.08] text-[10px] text-white/40">
+                ⌘K
+              </kbd>
+            </button>
+            <button className="px-5 py-2 rounded-full bg-green-400 text-black text-sm font-semibold hover:bg-green-300 transition-all duration-300 hover:shadow-[0_0_24px_-6px_rgba(74,222,128,0.6)]">
+              <Link href="#contact">Hire Me</Link>
             </button>
 
-            {/*Burger*/}
-            <HiBars3BottomRight
+            {/* Burger */}
+            <button
+              aria-label="Open menu"
               onClick={() => setIsSidebarOpen(true)}
-              className="w-8 h-8 cursor-pointer text-white lg:hidden"
-            />
+              className="lg:hidden"
+            >
+              <HiBars3BottomRight className="w-7 h-7 cursor-pointer text-white/80 hover:text-white transition-colors" />
+            </button>
           </div>
         </div>
       </div>
 
-      {/*SideBar*/}
+      {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black opacity-70 w-full h-screen z-[50] ${
-          isSidebarOpen ? "block" : "hidden"
+        onClick={() => setIsSidebarOpen(false)}
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm w-full h-screen z-[50] transition-opacity duration-300 ${
+          isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-      ></div>
+      />
+
+      {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 w-[80%] sm:w-[60%] h-full bg-[#1c1b22] z-[100] p-6 transform transition-transform duration-300 ${
-          isSidebarOpen ? "-translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 w-[80%] sm:w-[60%] h-full glass z-[100] p-6 transform transition-transform duration-300 ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/*Logo and closeMenu*/}
         <div className="flex justify-between items-center">
           <h1 className="font-medium text-[20px]">
-            Aayush Karki <span className="text-2xl text-green-500">.</span>
+            Aayush Karki <span className="text-2xl text-green-400">.</span>
           </h1>
-          <IoMdClose
-            onClick={() => setIsSidebarOpen(false)}
-            className="w-8 h-8 cursor-pointer text-white"
-          />
+          <button aria-label="Close menu" onClick={() => setIsSidebarOpen(false)}>
+            <IoMdClose className="w-7 h-7 cursor-pointer text-white/80 hover:text-white transition-colors" />
+          </button>
         </div>
 
-        {/*Sidebar Navlinks*/}
         <div className="flex flex-col justify-center items-start space-y-6 py-10">
           {navLinks.map((nav) => (
             <Link key={nav.id} href={nav.url}>
               <p
                 onClick={() => setIsSidebarOpen(false)}
-                className="nav_label text-[18px] border-white border-b-[1px] hover:border-none"
+                className="nav_label text-[18px] border-white/10 border-b hover:border-none pb-2"
               >
                 {nav.label}
               </p>
