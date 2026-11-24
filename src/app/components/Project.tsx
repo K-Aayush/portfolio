@@ -10,8 +10,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   fadeIn,
-  staggerContainer,
-  itemFadeUp,
   viewportConfig,
 } from "../lib/motion";
 
@@ -19,9 +17,17 @@ const Project = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
+  const activeProject = projects[activeIndex];
+  const gallery = activeProject.images ?? [
+    { src: activeProject.image, label: activeProject.title },
+  ];
+  const [imageIndex, setImageIndex] = useState(0);
+  const activeImage = gallery[Math.min(imageIndex, gallery.length - 1)];
+
   const paginate = (newIndex: number, dir: number) => {
     setDirection(dir);
     setActiveIndex(newIndex);
+    setImageIndex(0);
   };
 
   const handlePrevSlide = () =>
@@ -29,8 +35,6 @@ const Project = () => {
 
   const handleNextSlide = () =>
     paginate(activeIndex === projects.length - 1 ? 0 : activeIndex + 1, 1);
-
-  const activeProject = projects[activeIndex];
 
   const slideVariants = {
     enter: (dir: number) => ({
@@ -101,24 +105,28 @@ const Project = () => {
               </ul>
               <div className="border-t border-white/[0.06]" />
               <div className="flex gap-3 items-center">
-                <Link
-                  className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
-                  href={activeProject.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Live demo"
-                >
-                  <MdOutlineArrowOutward className="w-4 h-4" />
-                </Link>
-                <Link
-                  className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
-                  href={activeProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub repository"
-                >
-                  <FaGithub className="w-4 h-4" />
-                </Link>
+                {activeProject.live && (
+                  <Link
+                    className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
+                    href={activeProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Live demo"
+                  >
+                    <MdOutlineArrowOutward className="w-4 h-4" />
+                  </Link>
+                )}
+                {activeProject.github && (
+                  <Link
+                    className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
+                    href={activeProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub repository"
+                  >
+                    <FaGithub className="w-4 h-4" />
+                  </Link>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -135,7 +143,7 @@ const Project = () => {
           <div className="relative w-full h-[400px] card overflow-hidden group">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
-                key={activeProject.image}
+                key={activeImage.src}
                 custom={direction}
                 initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -144,8 +152,8 @@ const Project = () => {
                 className="absolute inset-0"
               >
                 <Image
-                  src={activeProject.image}
-                  alt={activeProject.title}
+                  src={activeImage.src}
+                  alt={`${activeProject.title} – ${activeImage.label}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
@@ -157,7 +165,24 @@ const Project = () => {
             </AnimatePresence>
           </div>
 
-          {/* Dots + arrows */}
+          {/* Screenshot gallery + arrows */}
+          {gallery.length > 1 && (
+            <div className="flex flex-wrap gap-2">
+              {gallery.map((img, i) => (
+                <button
+                  key={img.src}
+                  onClick={() => setImageIndex(i)}
+                  className={`text-xs rounded-full px-3 py-1.5 border transition-all duration-300 ${
+                    i === imageIndex
+                      ? "bg-green-400 text-black border-green-400"
+                      : "bg-white/[0.03] text-white/60 border-white/[0.08] hover:border-green-400/40 hover:text-white"
+                  }`}
+                >
+                  {img.label}
+                </button>
+              ))}
+            </div>
+          )}
           <div className="flex items-center gap-4 w-full justify-between">
             <div className="flex gap-2">
               {projects.map((_, i) => (
