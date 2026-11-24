@@ -86,7 +86,10 @@ const Hero = () => {
               </a>
 
               <div className="flex items-center gap-3">
-                <motion.div variants={fadeIn("up", 12)} className="flex items-center gap-3">
+                <motion.div
+                  variants={fadeIn("up", 12)}
+                  className="flex items-center gap-3"
+                >
                   <Link
                     href="https://github.com/K-Aayush"
                     target="_blank"
