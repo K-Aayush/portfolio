@@ -10,8 +10,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   fadeIn,
-  staggerContainer,
-  itemFadeUp,
   viewportConfig,
 } from "../lib/motion";
 
