@@ -108,13 +108,17 @@ export const experience = {
       role: "Engineering Manager",
       duration: "July 2025 - Present",
       details: [
-        "Lead engineering initiatives across backend systems, APIs, and healthcare platform architecture.",
-        "Design scalable Node.js, GraphQL, and PostgreSQL services with a focus on performance and reliability.",
-        "Make architectural decisions and collaborate closely with product and design teams to deliver features.",
-        "Manage sprint planning, code reviews, technical mentoring, and engineering best practices.",
-        "Monitor production systems using Datadog, investigate incidents, and improve system reliability.",
-        "Design and implement healthcare features including wellness, EMR, patient portal, and public profile services.",
-        "Drive CI/CD improvements, code quality, and scalable development workflows.",
+        "Led the team delivering the booking workflow end to end across the React Native mobile app, Node.js backend, Medplum, and CareDevi Connect (FastAPI service), with hands-on focus on the Node.js backend.",
+        "Architected and developed scalable backend services powering healthcare workflows, including EMR, patient portals, wellness features, and public profile systems.",
+        "Built and maintained GraphQL and REST APIs using Node.js, Express.js, Apollo Server, PostgreSQL, and Prisma ORM.",
+        "Integrated Customer.io from the backend to automate customer communication, including email flows for new-user registration and onboarding.",
+        "Designed and optimized database schemas, improving query performance and keeping data models scalable.",
+        "Developed secure authentication and authorization using JWT, Firebase Admin SDK, and OAuth-based workflows.",
+        "Used Datadog metrics, logs, traces, dashboards, and alerting to monitor production, speed up issue detection, and perform root cause analysis with long-term fixes.",
+        "Optimized backend performance by improving Prisma queries, middleware, and API execution, reducing response times for critical endpoints.",
+        "Built scheduled jobs, background workers, and event-driven processes supporting healthcare and wellness features.",
+        "Collaborated with mobile and frontend engineers to design scalable APIs and deliver features from planning to production.",
+        "Led code reviews, mentored developers, ran knowledge-sharing sessions, and contributed to engineering standards and architecture discussions.",
       ],
     },
     {
@@ -221,6 +225,30 @@ export const skills = {
 export const projects = [
   {
     num: "01",
+    category: "CareDevi | Engineering Manager – Healthcare & Wellness Platform",
+    title: "CareDevi – Corporate Wellness Platform",
+    description:
+      "CareDevi is a healthcare and wellness platform combining a React Native mobile app, a Node.js backend, Medplum, and CareDevi Connect (FastAPI). As Engineering Manager, I led the team delivering the booking workflow end to end, architected backend services for EMR, patient portals, wellness features, and public profiles, and drove performance, observability, and engineering standards across GraphQL and REST APIs built on PostgreSQL and Prisma.",
+    stack: [
+      { name: "React Native" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "Apollo Server" },
+      { name: "GraphQL" },
+      { name: "PostgreSQL" },
+      { name: "Prisma ORM" },
+      { name: "FastAPI" },
+      { name: "Medplum" },
+      { name: "Firebase" },
+      { name: "Customer.io" },
+      { name: "Datadog" },
+    ],
+    image: "/images/caredevi.png",
+    live: "https://www.joincaredevi.com/",
+    github: "",
+  },
+  {
+    num: "02",
     category: "GlowGuide Website | Full-Stack Project",
     title: "GlowGuide – AI Skincare Assistant",
     description:
@@ -239,7 +267,7 @@ export const projects = [
     github: "https://github.com/K-Aayush/GlowGuide-Frontend",
   },
   {
-    num: "02",
+    num: "03",
     category: "HomeServiceBooking Website | Full-Stack Project",
     title: "HomeServiceBooking – Booking Platform",
     description:
@@ -258,7 +286,7 @@ export const projects = [
     github: "https://github.com/K-Aayush/HomeServiceBooking-Frontend",
   },
   {
-    num: "03",
+    num: "04",
     category: "Meeting Schedular | Nexjs Project",
     title: "MeetingSchedular - Scheduling Platform",
     description:
@@ -278,7 +306,7 @@ export const projects = [
     github: "https://github.com/K-Aayush/meetingscheulder",
   },
   {
-    num: "04",
+    num: "05",
     category: "Webpal Website | Frontend Project",
     title: "WebPal",
     description:
@@ -293,7 +321,7 @@ export const projects = [
     github: "https://github.com/K-Aayush/webpal",
   },
   {
-    num: "05",
+    num: "06",
     category: "ConnectMe | Full-Stack Project",
     title: "ConnectMe - Dating Platform",
     description:

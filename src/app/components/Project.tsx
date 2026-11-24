@@ -101,24 +101,28 @@ const Project = () => {
               </ul>
               <div className="border-t border-white/[0.06]" />
               <div className="flex gap-3 items-center">
-                <Link
-                  className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
-                  href={activeProject.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Live demo"
-                >
-                  <MdOutlineArrowOutward className="w-4 h-4" />
-                </Link>
-                <Link
-                  className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
-                  href={activeProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub repository"
-                >
-                  <FaGithub className="w-4 h-4" />
-                </Link>
+                {activeProject.live && (
+                  <Link
+                    className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
+                    href={activeProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Live demo"
+                  >
+                    <MdOutlineArrowOutward className="w-4 h-4" />
+                  </Link>
+                )}
+                {activeProject.github && (
+                  <Link
+                    className="grid place-items-center bg-white/[0.04] border border-white/[0.06] p-3.5 rounded-full hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-300"
+                    href={activeProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub repository"
+                  >
+                    <FaGithub className="w-4 h-4" />
+                  </Link>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
